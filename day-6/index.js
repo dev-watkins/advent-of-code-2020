@@ -77,3 +77,31 @@ getInput().then(input=>{
   console.log('part 1', count);
   console.log('part 2', count2);
 })
+
+
+/* 
+cool solution from redit (u/ AlexAegis)
+
+const part1 = (input: string): number =>
+  input
+    .split(/\r?\n\r?\n/)
+    .map((group) => new Set(group.replace(/\r?\n/g, '')).size)
+    .reduce(sum);
+
+const part2 = (input: string): number =>
+  input
+    .split(/\r?\n\r?\n/)
+    .map((rawGroup) => rawGroup.split(/\r?\n/g))
+    .map((group) => {
+      const letterCounts = [...group.join('')]
+        .reduce(
+          (map, letter) => map.set(letter, (map.get(letter) ?? 0) + 1),
+          new Map<string, number>()
+        )
+        .values();
+      return [...letterCounts].filter((v) => v === group.length).length;
+    })
+    .reduce(sum);
+
+
+*/
