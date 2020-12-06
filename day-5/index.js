@@ -1,3 +1,4 @@
+//my original solution
 fs = require('fs');
 
 const getInput = async () => {
